@@ -13,6 +13,18 @@ services:
     depends_on:
       - db
 
+  app:
+    build:
+      context: ./docker/php
+    working_dir: /var/www/html
+    volumes:
+      - ./laravel:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
   db:
     image: mariadb:latest
     environment:
