@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -7,16 +6,29 @@
 
     <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
 
 <header class="site-header">
-    <div class="container">
-        <h1 class="site-title">
-            <?php bloginfo('name'); ?>
-        </h1>
+    <div class="container header-inner">
 
-        <p><?php bloginfo('description'); ?></p>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
+            <?php echo esc_html(get_bloginfo('name')); ?>
+        </a>
+
+        <nav class="main-navigation">
+            <a href="<?php echo esc_url(home_url('/')); ?>">Главная</a>
+            <a href="<?php echo esc_url(home_url('/about/')); ?>">О компании</a>
+            <a href="<?php echo esc_url(home_url('/services/')); ?>">Услуги</a>
+            <a href="<?php echo esc_url(home_url('/contacts/')); ?>">Контакты</a>
+        </nav>
+
+        <a href="<?php echo esc_url(home_url('/contacts/')); ?>"
+           class="header-button">
+            Оставить заявку
+        </a>
+
     </div>
 </header>

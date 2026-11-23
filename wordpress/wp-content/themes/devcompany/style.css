@@ -2,7 +2,7 @@
 /*
 Theme Name: DevCompany
 Author: Yaroslav
-Description: Учебная тема WordPress
+Description: Corporate WordPress theme
 Version: 1.0.0
 Text Domain: devcompany
 */
@@ -11,34 +11,270 @@ Text Domain: devcompany
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #222;
-    background: #f5f6fa;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
-    max-width: 1200px;
+    width: min(1200px, calc(100% - 40px));
     margin: 0 auto;
-    padding: 20px;
 }
+
+/* Header */
 
 .site-header {
-    background: #1e293b;
-    color: white;
+    background: #14243d;
+    color: #ffffff;
 }
 
-.site-title {
-    margin: 0;
-    font-size: 30px;
+.header-inner {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
-main {
-    min-height: 400px;
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #ffffff;
 }
+
+.main-navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.main-navigation a {
+    color: #cbd5e1;
+    transition: color .2s;
+}
+
+.main-navigation a:hover {
+    color: #ffffff;
+}
+
+.header-button,
+.primary-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+    transition: background .2s;
+}
+
+.header-button:hover,
+.primary-button:hover {
+    background: #2563eb;
+}
+
+/* Hero */
+
+.hero {
+    background: #14243d;
+    color: #ffffff;
+    padding: 110px 0 120px;
+}
+
+.hero-content {
+    max-width: 1200px;
+}
+
+.hero-label,
+.section-label {
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    max-width: 800px;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.15;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    display: block;
+    color: #60a5fa;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #cbd5e1;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+/* Services */
+
+.services {
+    padding: 90px 0;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+}
+
+.section-heading h2,
+.about h2 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: #64748b;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, .04);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .1);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #dbeafe;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.service-card h3 {
+    font-size: 21px;
+}
+
+.service-card p {
+    color: #64748b;
+    min-height: 75px;
+}
+
+.service-card a {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* About */
+
+.about {
+    padding: 80px 0;
+    background: #f1f5f9;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content p {
+    color: #64748b;
+    font-size: 17px;
+}
+
+/* Footer */
 
 .site-footer {
-    background: #1e293b;
-    color: white;
+    background: #14243d;
+    color: #ffffff;
+    padding: 45px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-inner p,
+.footer-copy {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .header-inner {
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .main-navigation {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .header-inner {
+        justify-content: center;
+    }
+
+    .main-navigation {
+        gap: 15px;
+    }
+
+    .header-button {
+        display: none;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
